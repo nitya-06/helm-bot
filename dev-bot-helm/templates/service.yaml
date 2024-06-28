@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "dev-bot-helm.fullname" . }}
+  labels:
+    {{- include "dev-bot-helm.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.service.type }}
+  selector:
+    app: {{ include "dev-bot-helm.name" . }}
+  ports:
+    - protocol: TCP
+      port: {{ .Values.service.frontendPort }}
+      targetPort: 3000
+      name: frontend
+    - protocol: TCP
+      port: {{ .Values.service.backendPort }}
+      targetPort: 5000
+      name: backend
+    - protocol: TCP
+      port: {{ .Values.service.ollamaPort }}
+      targetPort: 11434
+      name: ollama
