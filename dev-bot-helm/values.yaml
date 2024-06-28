@@ -7,13 +7,13 @@ replicaCount: 1
 image:
   pullPolicy: IfNotPresent
   frontend:
-    repository: chat-bot-frontend
+    repository: asia-south1-docker.pkg.dev/gc-qa6/gc-qa6/dev-outline-bot-frontend
     tag: latest
   backend:
-    repository: chat-bot-backend
+    repository: asia-south1-docker.pkg.dev/gc-qa6/gc-qa6/dev-outline-bot-backend
     tag: latest
   ollama:
-    repository: ollama/ollama
+    repository: asia-south1-docker.pkg.dev/gc-qa6/gc-qa6/ollama/ollama
     tag: latest
 
 
