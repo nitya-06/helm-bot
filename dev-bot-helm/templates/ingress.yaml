@@ -1,7 +1,7 @@
 apiVersion: {{ .Values.api.ingress | default "networking.k8s.io/v1" | quote }}
 kind: Ingress
 metadata:
-  name: testing-office-ingress-bot
+  name: dev-outline-bot
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
     kubernetes.io/tls-acme: "true"
@@ -11,7 +11,7 @@ metadata:
     nginx.ingress.kubernetes.io/proxy-send-timeout: "3600"
     nginx.ingress.kubernetes.io/proxy-body-size: 4096m
   labels:
-    app: testing-office-ingress-bot
+    app: dev-outline-bot
   namespace: {{ .Values.namespace }}
 spec:
   ingressClassName: "ingress-nginx-office"  
