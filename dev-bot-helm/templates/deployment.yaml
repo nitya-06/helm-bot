@@ -36,6 +36,9 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.frontend.repository }}:{{ .Values.image.frontend.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          env:
+            - name: REACT_APP_API_URL
+              value: "http://devtools-dev-outline-bot.sprinklr.com/api"
           ports:
             - containerPort: {{ .Values.service.frontendPort }}
               name: http
@@ -57,9 +60,11 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
             - name: MODEL_HOST
-              value: "ollama"
+              value: "dev-bot-helm.default.svc.cluster.local"
             - name: MODEL_PORT
               value: "11434"
+            - name: BACKEND_URL
+              value: "http://intuitionx-llm-router.qa6-k8singress-intuition-gke.sprinklr.com/chat-completion"
           ports:
             - containerPort: {{ .Values.service.backendPort }}
               name: http
