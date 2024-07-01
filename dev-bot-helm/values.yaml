@@ -7,13 +7,13 @@ replicaCount: 1
 image:
   pullPolicy: IfNotPresent
   frontend:
-    repository: prod-nexus.sprinklr.com:8123/chat-bot-frontend
+    repository: asia-south1-docker.pkg.dev/gc-qa6/gc-qa6/chat-bot-frontend
     tag: latest
   backend:
-    repository: prod-nexus.sprinklr.com:8123/chat-bot-backend
+    repository: asia-south1-docker.pkg.dev/gc-qa6/gc-qa6/chat-bot-backend
     tag: latest
   ollama:
-    repository: prod-nexus.sprinklr.com:8123/ollama/ollama
+    repository: asia-south1-docker.pkg.dev/gc-qa6/gc-qa6/chat-bot-ollama
     tag: latest
 
 
